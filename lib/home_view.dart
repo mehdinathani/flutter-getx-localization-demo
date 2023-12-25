@@ -15,40 +15,46 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(
-              'greeting'.tr,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            Text(
-              'app_explain'.tr,
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-            OutlinedButton(
-              onPressed: () {
-                isEnglish = !isEnglish;
-                Get.updateLocale(isEnglish
-                    ? const Locale('ur', 'PK')
-                    : const Locale('en', 'US'));
-              },
-              child: Text(isEnglish ? 'Urdu' : "English"),
-            ),
-            Switch(
-              value: isLightTheme,
-              onChanged: (value) {
-                setState(() {
-                  isLightTheme = value;
-                  Get.changeTheme(
-                    value ? ThemeData.light() : ThemeData.dark(),
-                  );
-                });
-              },
-            ),
-            // Text("Switch to ${isLightTheme ? "Dart Theme" : "Light Theme"}")
-          ],
+        child: Container(
+          padding: const EdgeInsets.all(18),
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.red, width: 20),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(
+                'greeting'.tr,
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              Text(
+                'app_explain'.tr,
+                style: Theme.of(context).textTheme.headlineMedium,
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  isEnglish = !isEnglish;
+                  Get.updateLocale(isEnglish
+                      ? const Locale('ur', 'PK')
+                      : const Locale('en', 'US'));
+                },
+                child: Text(isEnglish ? 'Urdu' : "English"),
+              ),
+              Switch(
+                value: isLightTheme,
+                onChanged: (value) {
+                  setState(() {
+                    isLightTheme = value;
+                    Get.changeTheme(
+                      value ? ThemeData.light() : ThemeData.dark(),
+                    );
+                  });
+                },
+              ),
+              // Text("Switch to ${isLightTheme ? "Dart Theme" : "Light Theme"}")
+            ],
+          ),
         ),
       ),
     );
